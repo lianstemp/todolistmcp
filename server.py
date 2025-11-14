@@ -72,3 +72,6 @@ def delete_todo(todo_id: int) -> dict:
     if not response.data:
         raise RuntimeError("Todo not found or delete failed")
     return response.data[0]
+
+if __name__ == "__main__":
+    app.run()
