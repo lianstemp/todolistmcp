@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "todolist-mcp"
+version = "0.1.0"
+description = "Simple FastMCP Supabase-backed todo list MCP server"
+authors = ["Your Name <you@example.com>"]
+packages = [
+    { include = "server" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+fastmcp = "^2.13.0.2"
+supabase = "^2.24.0"
+python-dotenv = "^1.2.1"
+
+[tool.poetry.scripts]
+dev = "server.mcp_server:main"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
