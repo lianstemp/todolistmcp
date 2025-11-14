@@ -4,19 +4,16 @@ from fastmcp import FastMCP
 from supabase import create_client, Client
 from dotenv import load_dotenv
 
-# Load environment variables from .env file if present
 load_dotenv()
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY")
 
 if not SUPABASE_URL or not SUPABASE_ANON_KEY:
-    # FastMCP will surface this on startup if missing
     raise RuntimeError("SUPABASE_URL and SUPABASE_ANON_KEY must be set in environment or .env file")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 
-# Fix: Gunakan 'instructions' bukan 'description'
 app = FastMCP(
     name="todolist-supabase",
     instructions="Simple todo list MCP server backed by Supabase for learning.",
@@ -75,11 +72,3 @@ def delete_todo(todo_id: int) -> dict:
     if not response.data:
         raise RuntimeError("Todo not found or delete failed")
     return response.data[0]
-
-def main() -> None:
-    """Entry point for `poetry run dev`."""
-    app.run()
-
-if __name__ == "__main__":
-    # Run as a plain FastMCP server (useful for quick local testing)
-    main()
