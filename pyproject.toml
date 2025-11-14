@@ -2,10 +2,7 @@
 name = "todolist-mcp"
 version = "0.1.0"
 description = "Simple FastMCP Supabase-backed todo list MCP server"
-authors = ["Your Name <you@example.com>"]
-packages = [
-    { include = "server" }
-]
+authors = ["Farhan Aulianda <farhanauliandaa@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4.0"
@@ -14,7 +11,7 @@ supabase = "^2.24.0"
 python-dotenv = "^1.2.1"
 
 [tool.poetry.scripts]
-dev = "server.mcp_server:main"
+dev = "server:main"
 
 [tool.poetry.group.dev.dependencies]
 
